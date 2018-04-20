@@ -1,0 +1,15 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  azure-text-analytics:
+    lang: golang-http
+    handler: ./azure-text-analytics
+    image: kenfdev/azure-text-analytics:0.1
+    secrets:
+    - azure-api-keys
+    environment:
+      write_debug: true
+      API_KEY_NAME: azure-free-text-analytics-api-key
+      TEXT_ANALYZE_BASE_URL: https://eastasia.api.cognitive.microsoft.com/text/analytics/v2.0

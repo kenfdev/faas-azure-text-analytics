@@ -1,0 +1,12 @@
+version: '3'
+services:
+  azure-text-analytics:
+    image: kenfdev/azure-text-analytics:0.1
+    environment:
+      API_KEY_NAME: azure-free-text-analytics-api-key
+      TEXT_ANALYZE_BASE_URL: https://eastasia.api.cognitive.microsoft.com/text/analytics/v2.0
+    volumes:
+    - ./azure-free-text-analytics-api-key:/run/secrets/azure-free-text-analytics-api-key
+    ports:
+    - 9080:8080
+    
